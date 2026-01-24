@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `ethiopian_holidays` (
   `id` BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   `name_amharic` VARCHAR(200),
-  `description` TEXT,
+  `description` TEXT, 
   `start_date` DATE NOT NULL,
   `end_date` DATE NOT NULL,
   `holiday_type` ENUM('religious', 'national', 'regional', 'international') DEFAULT 'national',
