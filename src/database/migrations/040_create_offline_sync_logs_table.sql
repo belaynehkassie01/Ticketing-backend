@@ -1,7 +1,6 @@
--- ============================================
--- TABLE: offline_sync_logs
+-- Migration: 040_create_offline_sync_logs_table.sql
 -- Purpose: Store offline sync logs
--- ============================================
+
 CREATE TABLE IF NOT EXISTS `offline_sync_logs` (
   `id` BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `device_id` VARCHAR(255) NOT NULL,
@@ -24,11 +23,9 @@ CREATE TABLE IF NOT EXISTS `offline_sync_logs` (
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   
   FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
-    ON DELETE CASCADE
-    ON UPDATE RESTRICT,
+    ON DELETE CASCADE ON UPDATE RESTRICT,
   FOREIGN KEY (`city_id`) REFERENCES `cities`(`id`)
-    ON DELETE SET NULL
-    ON UPDATE RESTRICT,
+    ON DELETE SET NULL ON UPDATE RESTRICT,
   
   INDEX `idx_device` (`device_id`),
   INDEX `idx_user` (`user_id`),

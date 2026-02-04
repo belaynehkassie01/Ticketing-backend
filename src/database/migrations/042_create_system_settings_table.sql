@@ -1,7 +1,6 @@
--- ============================================
--- TABLE: system_settings
+-- Migration: 042_create_system_settings_table.sql
 -- Purpose: Store system configuration settings
--- ============================================
+
 CREATE TABLE IF NOT EXISTS `system_settings` (
   `id` BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `category` VARCHAR(100) NOT NULL,
@@ -21,8 +20,7 @@ CREATE TABLE IF NOT EXISTS `system_settings` (
   `updated_by` BIGINT UNSIGNED NULL,
   
   FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`)
-    ON DELETE SET NULL
-    ON UPDATE RESTRICT,
+    ON DELETE SET NULL ON UPDATE RESTRICT,
   
   INDEX `idx_category` (`category`),
   INDEX `idx_setting_key` (`setting_key`),

@@ -1,7 +1,6 @@
--- ============================================
--- TABLE: webhook_logs
+-- Migration: 041_create_webhook_logs_table.sql
 -- Purpose: Store webhook logs
--- ============================================
+
 CREATE TABLE IF NOT EXISTS `webhook_logs` (
   `id` BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `webhook_type` ENUM('telebirr_payment', 'sms_delivery', 'email_delivery', 'third_party', 'custom') NOT NULL,
